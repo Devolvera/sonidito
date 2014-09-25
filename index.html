@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>About A Week Ago Button</title>
+  <meta name="description" content="About A Week Ago Button">
+  <meta name="author" content="Secret Service">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="container">
+  <a href="#" id="inner">
+    <div id="button" onclick="play()"><span data-text-swap="ESO!">PLAY</span>
+      <audio id="audio" src="sonidito.m4a"></audio><br />
+    </div>
+
+  </a>
+</div>
+
+
+  </div>
+
+  <script>
+  function play(){
+       var audio = document.getElementById("audio");
+       audio.play();
+                 }
+
+    var button = $("#button");
+    var span = $("span");
+
+    button.click(function(event) {
+      event.preventDefault();
+      $(this).addClass('animated bounce');
+      span.text(span.data("text-swap"));
+    });
+
+    $('#button').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $('#inner').addClass('animated pulse');
+    });
+   </script>
+   <script language="JavaScript" type="text/javascript" src="js/heightstuff.js"></script>
+</body>
+</html>
